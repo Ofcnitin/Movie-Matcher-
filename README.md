@@ -1,61 +1,82 @@
-# Keeping the TMDB key out of your GitHub repo
+CineMatch
 
-The version in `cinematch.jsx` (the Claude artifact) has the key baked
-directly into the source — that's fine for previewing here, but if you
-copy this code into a real project and push it to GitHub, **don't commit
-it that way**. Anyone browsing your repo's files or history would see it
-in plain text permanently, even if you remove it in a later commit.
+CineMatch is a movie discovery and recommendation web app powered by the TMDB API. It helps users discover movies based on their tastes, mood, and viewing history through a simple, responsive interface.
 
-## Setup (Vite/CRA-style project)
+Features
 
-1. Copy `.env.example` → `.env` and paste your real key into `.env`.
-2. Copy `.gitignore` into your project root (or merge the `.env` line
-   into your existing one) — this stops `.env` from ever being staged.
-3. In `cinematch.jsx`, replace the hardcoded key with:
+- 🎬 Personalized movie recommendations
+- ⭐ Select movies you already love to improve recommendations
+- 🔎 Search for movies using TMDB
+- 🎭 Browse recommendations by mood and genre
+- 🎟️ Movie cards with posters, ratings, release years, and descriptions
+- ✅ Mark movies as watched
+- 📚 Keep track of your watched collection
+- 🔀 Discover new movies with randomized recommendations
+- 📱 Responsive interface for desktop and mobile
 
-   ```js
-   const DEFAULT_TMDB_KEY = import.meta.env.VITE_TMDB_API_KEY;
-   ```
+Tech Stack
 
-4. Commit and push as normal — only `.env.example` (no real key) ever
-   reaches GitHub. Each person who clones the repo makes their own `.env`.
-5. When you deploy (Vercel/Netlify/etc.), add `VITE_TMDB_API_KEY` as an
-   environment variable in that platform's dashboard, not in the repo.
+- React
+- Vite
+- JavaScript
+- Lucide React
+- TMDB API
 
-## The part this doesn't solve
+Getting Started
 
-This only keeps the key out of your **repo**. Once the app is built and
-running in someone's browser, the key still gets sent as a plain URL
-parameter on every request to TMDB — so it's visible in that browser's
-Network tab regardless. There's no client-side-only way around that; a
-truly hidden key requires a small backend/proxy that holds the key
-server-side and the app calls your server instead of TMDB directly.
-If that ever matters to you (e.g. the key starts getting abused), that
-proxy is the next step — happy to build one if you want it.
+1. Clone the repository
 
-## If the key ever leaks or gets abused
+git clone https://github.com/Ofcnitin/Movie-Matcher.git
+cd Movie-Matcher
 
-Regenerate it at https://www.themoviedb.org/settings/api and swap the
-new value into `.env` (or your host's environment variables). Nothing
-else in the app needs to change.
+2. Install dependencies
 
+npm install
 
-## Local setup
+3. Configure the TMDB API key
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Create a `.env` file from `.env.example`.
-3. Put your TMDB key in `.env`:
-   ```env
-   VITE_TMDB_API_KEY=your_tmdb_api_key_here
-   ```
-4. Start the app:
-   ```bash
-   npm run dev
-   ```
+Create a ".env" file in the project root:
 
-### Security
+VITE_TMDB_API_KEY=your_tmdb_api_key_here
 
-Do **not** commit `.env` or any file containing your real API key. `.env` is ignored by Git through `.gitignore`; `.env.example` is safe to commit because it contains only a placeholder.
+You can use ".env.example" as a template.
+
+Never commit your ".env" file or your real API key to GitHub.
+
+4. Start the development server
+
+npm run dev
+
+The application will be available at the local URL shown by Vite.
+
+Environment Variables
+
+The project uses:
+
+VITE_TMDB_API_KEY=
+
+The ".env" file is excluded from Git through ".gitignore". Only ".env.example", which contains a placeholder, should be included in the repository.
+
+Important Security Note
+
+The TMDB key is required by the frontend to make API requests. Keeping it in ".env" prevents the key from being committed to the GitHub repository, but it does not make the key completely secret once the frontend is running in a browser.
+
+A production setup that requires the key to remain completely private would use a backend or API proxy instead of making TMDB requests directly from the browser.
+
+Project Structure
+
+Movie-Matcher/
+├── src/
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
+├── index.html
+├── package.json
+├── vite.config.js
+├── .env.example
+├── .gitignore
+└── README.md
+
+License
+
+This project is intended for learning and personal development.
