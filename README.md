@@ -1,82 +1,76 @@
-CineMatch
+# 🎬 Movie Matcher
 
-CineMatch is a movie discovery and recommendation web app powered by the TMDB API. It helps users discover movies based on their tastes, mood, and viewing history through a simple, responsive interface.
+> Discover movies that match your taste, mood, and watch history.
 
-Features
+**Movie Matcher** is a modern movie discovery and recommendation web app built with React and the TMDB API. It helps you find movies you'll actually want to watch by combining your favorite movies, moods, genres, and viewing history into a personalized discovery experience.
 
-- 🎬 Personalized movie recommendations
-- ⭐ Select movies you already love to improve recommendations
-- 🔎 Search for movies using TMDB
-- 🎭 Browse recommendations by mood and genre
-- 🎟️ Movie cards with posters, ratings, release years, and descriptions
-- ✅ Mark movies as watched
-- 📚 Keep track of your watched collection
-- 🔀 Discover new movies with randomized recommendations
-- 📱 Responsive interface for desktop and mobile
+## 🌐 Live Demo
 
-Tech Stack
+🚀 **Try Movie Matcher:**  
+https://ofcnitin.github.io/Movie-Matcher-/
 
-- React
-- Vite
-- JavaScript
-- Lucide React
-- TMDB API
+---
 
-Getting Started
+## ✨ Features
 
-1. Clone the repository
+### 🎯 Personalized Discovery
+Choose movies you already love and get recommendations tailored to your preferences.
 
+### 🎭 Mood & Genre Discovery
+Explore movies based on different moods and genres instead of endlessly scrolling through catalogs.
+
+### 🔎 Powerful Movie Search
+Search the TMDB database to quickly find movies, explore their details, and add them to your experience.
+
+### ⭐ Favorite-Based Recommendations
+Select movies you enjoy to help Movie Matcher understand your taste and improve recommendations.
+
+### 🎬 Detailed Movie Cards
+View essential movie information including:
+
+- Poster
+- Rating
+- Release year
+- Overview
+- Genre information
+
+### ✅ Watched Collection
+Mark movies as watched and maintain your personal movie collection.
+
+### 🔀 Randomized Discovery
+Discover something unexpected with randomized movie recommendations.
+
+### 💾 Persistent Data
+Your selected movies and collection are saved locally so they can remain available when you return to the website.
+
+### 📱 Responsive Design
+Designed to work smoothly across:
+
+- 📱 Mobile
+- 💻 Desktop
+- 🖥️ Larger screens
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| ⚛️ React | User interface |
+| ⚡ Vite | Development & build tooling |
+| 🟨 JavaScript | Application logic |
+| 🎨 CSS | UI and responsive styling |
+| ✨ Lucide React | Icons |
+| 🎬 TMDB API | Movie data and metadata |
+| 💾 LocalStorage | Persistent user data |
+| 🚀 GitHub Pages | Deployment |
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+
+```bash
 git clone https://github.com/Ofcnitin/Movie-Matcher.git
 cd Movie-Matcher
-
-2. Install dependencies
-
-npm install
-
-3. Configure the TMDB API key
-
-Create a ".env" file in the project root:
-
-VITE_TMDB_API_KEY=your_tmdb_api_key_here
-
-You can use ".env.example" as a template.
-
-Never commit your ".env" file or your real API key to GitHub.
-
-4. Start the development server
-
-npm run dev
-
-The application will be available at the local URL shown by Vite.
-
-Environment Variables
-
-The project uses:
-
-VITE_TMDB_API_KEY=
-
-The ".env" file is excluded from Git through ".gitignore". Only ".env.example", which contains a placeholder, should be included in the repository.
-
-Important Security Note
-
-The TMDB key is required by the frontend to make API requests. Keeping it in ".env" prevents the key from being committed to the GitHub repository, but it does not make the key completely secret once the frontend is running in a browser.
-
-A production setup that requires the key to remain completely private would use a backend or API proxy instead of making TMDB requests directly from the browser.
-
-Project Structure
-
-Movie-Matcher/
-├── src/
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── index.html
-├── package.json
-├── vite.config.js
-├── .env.example
-├── .gitignore
-└── README.md
-
-License
-
-This project is intended for learning and personal development.
