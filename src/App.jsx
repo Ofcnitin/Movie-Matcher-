@@ -59,17 +59,19 @@ function yearOf(m) {
 /* ---------------- Storage helpers ---------------- */
 async function loadKey(key, fallback) {
   try {
-    const r = await window.storage.get(key, false);
-    return r ? JSON.parse(r.value) : fallback;
-  } catch {
+    const value = localStorage.getItem(key);
+    return value !== null ? JSON.parse(value) : fallback;
+  } catch (error) {
+    console.error(`Failed to load ${key}:`, error);
     return fallback;
   }
 }
+
 async function saveKey(key, value) {
   try {
-    await window.storage.set(key, JSON.stringify(value), false);
-  } catch {
-    /* best effort */
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch (error) {
+    console.error(`Failed to save ${key}:`, error);
   }
 }
 
